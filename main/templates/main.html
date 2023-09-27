@@ -18,9 +18,9 @@
               Logout
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Keluar</a></li>
+              <li><a class="dropdown-item" href="{% url 'main:logout' %}">Keluar</a>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -30,7 +30,7 @@
       </div>
     </div>
 </nav>
-    <h1>Shopping List Page</h1>
+<h1 style="text-align:center">Shopping List</h1>
 
     <h5>Name:</h5>
     <p>{{name}}</p>
@@ -38,11 +38,31 @@
     <h5>Class:</h5>
     <p>{{class}}</p>
     <table>
+    <head>
+        <style>
+        table, th, td {
+            border: 5px solid navy;
+            border-radius: 10px;
+            /* width: 100%; */
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style >
+        </head>
         <tr>
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
             <th>Date Added</th>
+            <th>Action</th>
         </tr>
     
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -68,7 +88,7 @@
             </tr>
         {% endfor %}
     </table>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <h10>Sesi terakhir login: {{ last_login }}</h10>
     <br />
     
     <a href="{% url 'main:create_product' %}">
